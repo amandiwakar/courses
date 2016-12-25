@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Book Review</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static "book_review/style.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+    </head>
+    <body>
+        <h1>Please<a href="/"> Login!</a></h1>
+        {% for review in reviews %}
+        <h2>{{ review.title}}</h2>
+        <p>{{review.rating}},{{review.review}}</p>
+        {% endfor %}
+        <a href="{% url 'add' %}">Add A Review</a>
+        <a href="{% url 'logout' %}">Logout</a>
+
+    </body>
+</html>

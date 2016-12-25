@@ -1,0 +1,24 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+#container{
+margin: 0px auto;
+width: 1000px;
+margin-top: 1px;
+
+}
+
+input {
+    display: block;
+}
+
+#lookup{
+
+    padding-left: 100px;
+}
+
+#lookup, #login{
+    display:inline-block;
+}

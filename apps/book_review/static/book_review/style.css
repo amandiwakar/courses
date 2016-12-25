@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+#container{
+margin: 0px auto;
+width: 300px;
+margin-top: 1px;
+
+}
+#add_review{
+
+}
+#latest_reviews{
+
+}
+#add_review,#latest_reviews{
+    display:inline-block;
+}
