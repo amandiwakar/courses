@@ -28,7 +28,7 @@ class UserManager(models.Manager):
         print curr_user
 
 
-        user = self.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'],email=request.POST['email'],pw_hash=pw_hash)
+        user = self.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'],email=request.POST['email'],pw_hash=pw_hash,dob=request.POST['bday'])
 
 
         return (True, user)
