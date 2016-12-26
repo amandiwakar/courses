@@ -72,6 +72,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=45)
     email = models.CharField(max_length=45)
     pw_hash = models.CharField(max_length=255)
+    dob = models.DateField(max_length=8)
 
     objects = UserManager()
 

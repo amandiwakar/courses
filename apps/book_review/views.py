@@ -38,6 +38,7 @@ def add(request):
         if request.method == "POST":
             result = Reviews.objects.add_book_review(request.POST,request.session['user'])
             print 'result ==',result
+            print "processing add quote"
 
             return redirect('index')
 

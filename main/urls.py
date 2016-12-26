@@ -21,6 +21,7 @@ urlpatterns = [
     # url(r'^survey', include('apps.survey.urls')),
     url(r'^', include('apps.login_registration.urls')),
     url(r'^book_review/',include('apps.book_review.urls')),
+    url(r'^quotes/',include('apps.quotes.urls')),
     # url(r'^friendship', include('apps.friendship.urls')),
     # url(r'^app/',include('apps.login_registration.urls')),
 

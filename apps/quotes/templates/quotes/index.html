@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Quotes</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static "login_registration/style.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    </head>
+    <body>
+        <div id="container">
+        <h1>Welcome {{request.session.user.first_name}}</h1>
+
+        <p>Quotable Quotes</p>
+
+        <form name="contribute" method="post" action="{% url 'add_quote' %}">
+            {% csrf_token %}
+
+            Quoted By:<input type='text' name='quoted_by'>
+            Message:<textarea name='quote' rows='10' cols='30'></textarea>
+            <br>
+            <input type='submit' value='submit'>
+        </form>
+
+        <h2>All Quotes</h2>
+        {% for quote in quotes %}
+
+        <p>{{ quote.quoted_by }}:{{ quote.quote }}</p>
+
+
+        <p>Posted By:{{ quote.posted_by.first_name }}<p>
+        {% endfor %}
+        <input type="submit" value="Add to my list"  formaction=>
+        </div>
+    </body>
+</html>
