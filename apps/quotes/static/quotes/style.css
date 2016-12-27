@@ -13,7 +13,9 @@ margin-top: 1px;
 input {
     display: block;
 }
-
+textarea{
+    display:block;
+}
 #lookup{
 
     padding-left: 100px;
