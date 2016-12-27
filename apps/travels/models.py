@@ -45,6 +45,7 @@ class TravelsManager(models.Manager):
 
 
 
+
 # Create your models here.
 class Travels(models.Model):
     destination = models.CharField(max_length=255)

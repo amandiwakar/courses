@@ -11,14 +11,14 @@
         <h2>Your Travel</h2>
         {% for travel in travels %}
         {% if travel.traveler.first_name == request.session.user.first_name %}
-        <p>{{ travel.traveler.first_name }}:{{ travel.destination }} {{travel.travel_from}} {{travel.travel_to}}</p>
+        <p>{{ travel.traveler.first_name }}:<a href="/travel/destination/{{travel.id}}"> {{ travel.destination }}</a> {{travel.travel_from}} {{travel.travel_to}}</p>
         {% endif %}
         {% endfor %}
         <br>
         <h2> Other Travelers</h2>
         {% for travel in travels %}
         {% if travel.traveler.first_name != request.session.user.first_name %}
-        <p>{{ travel.traveler.first_name }}:{{ travel.destination }} {{travel.travel_from}} {{travel.travel_to}}</p>
+        <p>{{ travel.traveler.first_name }}:<a href="/travel/destination/{{travel.id}}"> {{ travel.destination }}</a> {{travel.travel_from}} {{travel.travel_to}}</p>
         {% endif %}
         {% endfor %}
         <a href="{% url 'logout' %}">Logout</a>

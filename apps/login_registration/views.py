@@ -62,7 +62,7 @@ def log_user_in(request, user):
     print 'processed log_user_in'
     # return redirect(reverse('add'))
     print 'sending user to add.html'
-    return redirect(reverse('add_travel'),context)
+    return redirect(reverse('index'),context)
 
 def delete(request, id):
     u = User.objects.get(id=id).delete()

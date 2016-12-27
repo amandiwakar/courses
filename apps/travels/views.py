@@ -40,3 +40,16 @@ def add_travel(request):
         return redirect('index')
     print "sending back to index"
     return render(request, 'travels/add_travel.html',context)
+
+def destination(request,id):
+
+
+
+    destination = Travels.objects.get(id=id)
+
+    for destination in destination:
+        print destination
+
+    print destination
+
+    return render(request, 'travels/destination.html')
