@@ -42,14 +42,16 @@ def add_travel(request):
     return render(request, 'travels/add_travel.html',context)
 
 def destination(request,id):
+    id = int(id)
+
+    one_entry = Travels.objects.get(id=id)
+    print one_entry
+
+    context = {
+
+        "destination":one_entry
+    }
 
 
 
-    destination = Travels.objects.get(id=id)
-
-    for destination in destination:
-        print destination
-
-    print destination
-
-    return render(request, 'travels/destination.html')
+    return render(request, 'travels/destination.html',context)

@@ -9,18 +9,52 @@
         <a href="{% url 'add_travel' %}">Add Travel Plan</a>
 
         <h2>Your Travel</h2>
+        <table style="width:100%">
+          <tr>
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Travel Start</th>
+            <th>Travel End</th>
+            <th>Plan</th>
+          </tr>
+          <tr>
+
         {% for travel in travels %}
         {% if travel.traveler.first_name == request.session.user.first_name %}
-        <p>{{ travel.traveler.first_name }}:<a href="/travel/destination/{{travel.id}}"> {{ travel.destination }}</a> {{travel.travel_from}} {{travel.travel_to}}</p>
+        <td>{{ travel.traveler.first_name }}</td>
+        <td><a href="/travel/destination/{{travel.id}}"> {{ travel.destination }}</a></td>
+        <td> {{travel.travel_from}}</td>
+        <td> {{travel.travel_to}}</td>
+        <td> {{travel.description}}</td>
+        </tr>
         {% endif %}
         {% endfor %}
+        </table>
         <br>
         <h2> Other Travelers</h2>
+        <table style="width:100%">
+          <tr>
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Travel Start</th>
+            <th>Travel End</th>
+            <th>Plan</th>
+          </tr>
+          <tr>
+
         {% for travel in travels %}
         {% if travel.traveler.first_name != request.session.user.first_name %}
-        <p>{{ travel.traveler.first_name }}:<a href="/travel/destination/{{travel.id}}"> {{ travel.destination }}</a> {{travel.travel_from}} {{travel.travel_to}}</p>
+        <td>{{ travel.traveler.first_name }}</td>
+        <td><a href="/travel/destination/{{travel.id}}"> {{ travel.destination }}</a></td>
+        <td> {{travel.travel_from}}</td>
+        <td> {{travel.travel_to}}</td>
+        <td> {{travel.description}}</td>
+        </tr>
         {% endif %}
         {% endfor %}
+        </table>
+        <br>
+        <br>
         <a href="{% url 'logout' %}">Logout</a>
         <a href="{% url 'index' %}">Home</a>
     </body>
