@@ -125,3 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+# Also enter the line below, repalcing {{yourEC2.public.ip}} 
+# with your server's public IP address (leave the quotation marks)
+ALLOWED_HOSTS = ['ec2-52-53-152-233.us-west-1.compute.amazonaws.com']
