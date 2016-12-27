@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Quotes</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static "travels/style.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    </head>
+    <body>
+        <div id="container">
+        <h1>Welcome {{request.session.user.first_name}}</h1>
+
+        <p>Add A Trip</p>
+
+        <form name="add_travel" method="post" action="{% url 'add_travel' %}">
+            {% csrf_token %}
+
+            Destination:<input type='text' name='destination'>
+            Description:<input type='text' name='description'>
+            Travel From:<input type="date" name="travel_from">
+            Travel To:<input type="date" name="travel_to">
+            <br>
+            <input type='submit' value='Add'>
+
+        </form>
+
+        <h2>All Travel</h2>
+        {% for travel in travels %}
+
+        <p>{{ travel.traveler.first_name }}:{{ travel.destination }}</p>
+        {% endfor %}
+        <!-- <input type="submit" value="Add to my list"  formaction=> -->
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'index' %}">Home</a>
+        </div>
+    </body>
+</html>

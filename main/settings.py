@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django_extensions',
     'apps.ninjas',
+    'apps.travels',
     'apps.quotes',
     'apps.book_review',
     'apps.login_registration',

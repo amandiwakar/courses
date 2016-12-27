@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>These are the travels</title>
+    </head>
+    <body>
+        <h1>Hello {{request.session.user.first_name}}</h1>
+        <a href="{% url 'add_travel' %}">Add Travel Plan</a>
+
+        <h2>All Travel</h2>
+        {% for travel in travels %}
+
+        <p>{{ travel.traveler.first_name }}:{{ travel.destination }} {{travel.travel_from}} {{travel.travel_to}}</p>
+        {% endfor %}
+        <br>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'index' %}">Home</a>
+    </body>
+</html>
