@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'social.apps.django_app.default',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'social_django.middleware.SocialAuthExceptionMiddlware',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -70,6 +73,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'social.apps.django_app.context_processors.backends',
+                # 'social.apps.django_app.context_processors.login_redirect',
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -126,3 +132,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTHENTICATION_BACKENDS = (
+    # 'social.backends.facebook.FacebookOAuth2',
+    # 'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+)
+
+LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1696025693988631'
+SOCIAL_AUTH_FACEBOOK_SECRET = '8c0e989fa1a7be5a7e30b574ff98d3f4'

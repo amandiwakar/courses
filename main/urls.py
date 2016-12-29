@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^book_review/',include('apps.book_review.urls')),
     url(r'^quotes/',include('apps.quotes.urls')),
     url(r'^travel/',include('apps.travels.urls')),
+    url(r'^social/', include('social_django.urls', namespace='social')),
+    # url(r'^auth/', include('django.contrib.auth.urls', namespace='apps')),
     # url(r'^friendship', include('apps.friendship.urls')),
     # url(r'^app/',include('apps.login_registration.urls')),
 

@@ -21,6 +21,11 @@
         {% endif %}
         <div id="container">
             <div id="login">
+                {% if user and not user.is_anonymous %}
+                    Hello {{ user.first_name | default:user.email}}
+                {% else %}
+                    I dont think we've met before
+                {% endif %}
                 <h2>Register</h2>
                 <form name="register" action="{% url 'register' %}" method="post">
                     {% csrf_token %}
@@ -39,6 +44,7 @@
                     Password:<input type="password" name="password">
                     <input type="submit" name="Login">
                 </form>
+                <a href="{% url 'social:begin' 'facebook' %}?next={{request.path}}">Login with Facebook</a>
             </div>
             <div id="lookup">
                 {% for user in users %}
