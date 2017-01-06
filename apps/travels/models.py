@@ -24,7 +24,7 @@ class TravelsManager(models.Manager):
 
         new_travel = Travels(
         destination=data['destination'],
-        traveler=dbUser,
+        travelers=dbUser,
         description=data['description'],
         travel_from=data['travel_from'],
         travel_to=data['travel_to']
@@ -38,6 +38,15 @@ class TravelsManager(models.Manager):
         # print review,"this is the dictionary"
         return (True)
 
+    def join_travel(self, data, id):
+        dbUser = int(data['id'])
+        guy = User.objects.get(id=dbUser)
+        travel_id = int(id)
+        travel = Travels.objects.get(id=travel_id)
+        destination = travel.destination
+        print dbUser,"this is the traveler ID"
+        travel.save(dbUser)
+        return (True)
 
 
 
@@ -49,7 +58,7 @@ class TravelsManager(models.Manager):
 # Create your models here.
 class Travels(models.Model):
     destination = models.CharField(max_length=255)
-    traveler = models.ForeignKey(User)
+    travelers = models.ManyToManyField(User)
     travel_from = models.DateTimeField(null=True)
     travel_to = models.DateTimeField(null=True)
     description = models.CharField(max_length=255)

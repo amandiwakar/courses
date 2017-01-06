@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from dashing.utils import router
 
 urlpatterns = [
-    # url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     # url(r'^survey', include('apps.survey.urls')),
     url(r'^', include('apps.login_registration.urls')),
     url(r'^book_review/',include('apps.book_review.urls')),
     url(r'^quotes/',include('apps.quotes.urls')),
     url(r'^travel/',include('apps.travels.urls')),
     url(r'^social/', include('social_django.urls', namespace='social')),
-    # url(r'^auth/', include('django.contrib.auth.urls', namespace='apps')),
+    url(r'^auth/', include('django.contrib.auth.urls', namespace='auth')),
+    url(r'^dashboard/', include(router.urls)),
     # url(r'^friendship', include('apps.friendship.urls')),
     # url(r'^app/',include('apps.login_registration.urls')),
 

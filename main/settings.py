@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'apps.login_registration',
     'apps.friendship',
     'apps.survey',
+    'dashing',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,11 +136,11 @@ STATIC_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = (
     # 'social.backends.facebook.FacebookOAuth2',
-    # 'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.facebook.FacebookOAuth2',
 )
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/travel'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '1696025693988631'
 SOCIAL_AUTH_FACEBOOK_SECRET = '8c0e989fa1a7be5a7e30b574ff98d3f4'

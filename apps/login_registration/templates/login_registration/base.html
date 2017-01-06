@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>MultiUser App</title>
+    </head>
+    <body>
+
+        <nav class='navebar navbar-default navbar-fixed-top'>
+            <div class='navbar-inverse'>
+                <div class='container'>
+                    <div class='navbar-header'>
+                        <a class='navbar-brand' href="/"><img></a>
+                    </div>
+                    <form class='navbar-form navbar-left' role='search'>
+                        <div class='form-group'>
+                            <input type='text' class="form-control" placeholder="find services">
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{ user.get_full_name|default:user.username }} <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </hr>
+        {% block page %}
+        {% endblock %}
+    </body>
+</html>

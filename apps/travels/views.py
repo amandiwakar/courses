@@ -41,6 +41,14 @@ def add_travel(request):
     print "sending back to index"
     return render(request, 'travels/add_travel.html',context)
 
+def join_t(request,id):
+    print request.session['user'],"This is the request"
+    data = request.session['user']
+    id = int(id)
+    print id, "this is the travel ID"
+    add_to_travel = Travels.objects.join_travel(data,id)
+    return redirect('index')
+
 def destination(request,id):
     id = int(id)
 

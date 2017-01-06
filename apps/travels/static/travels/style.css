@@ -24,3 +24,6 @@ textarea{
 #lookup, #login{
     display:inline-block;
 }
+th {
+    text-align: center;
+}

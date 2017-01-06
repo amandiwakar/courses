@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>These are the travels</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static "travels/style.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     </head>
     <body>
         <h1>Hello {{request.session.user.first_name}}</h1>
@@ -38,7 +41,7 @@
             <th>Destination</th>
             <th>Travel Start</th>
             <th>Travel End</th>
-            <th>Plan</th>
+            <th>Do you wish to Join?</th>
           </tr>
           <tr>
 
@@ -48,7 +51,7 @@
         <td><a href="/travel/destination/{{travel.id}}"> {{ travel.destination }}</a></td>
         <td> {{travel.travel_from}}</td>
         <td> {{travel.travel_to}}</td>
-        <td> {{travel.description}}</td>
+        <td> <a href="/travel/join/{{travel.id}}">Join</a></td>
         </tr>
         {% endif %}
         {% endfor %}
